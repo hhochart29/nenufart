@@ -16,8 +16,8 @@ const devWebpackConfig = merge(baseWebpackConfig, {
   devtool: config.dev.devtool,
   output: {
     path: config.dev.assetsRoot,
-    filename: utils.assetsPath('scripts/[name].js'),
-    chunkFilename: utils.assetsPath('scripts/[name].js')
+    filename: utils.assetsPath('js/[name].js'),
+    chunkFilename: utils.assetsPath('js/[name].js')
   },
   plugins: [
     new webpack.DefinePlugin({
