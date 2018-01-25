@@ -2,15 +2,11 @@
   <div id="app">
     <img src="./assets/logo.png">
     Ah !
-    <HelloWorld></HelloWorld>
   </div>
 </template>
 
 <script>
-  import HelloWorld from './components/HelloWorld'
-
   export default {
-    components: {HelloWorld},
     name: 'app'
   }
 </script>
