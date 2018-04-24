@@ -5,7 +5,8 @@
 </template>
 
 <script>
-import Dot from './Dot'
+import Particle from './Particle'
+
 export default {
   name: 'Particles',
   data () {
@@ -13,58 +14,70 @@ export default {
       i: 0,
       canvas: null,
       ctx: null,
-      i_dot: null,
-      j_dot: null,
-      colorDot: '#CECECE',
-      color: '#CECECE',
-      dots: {
-        nb: 600,
-        distance: 60,
-        d_radius: 100,
-        array: []
-      },
+      arrayPos: [],
+      arrayParticles: [],
       dot: [],
-      mousePosition: {
-        x: 30 * window.width / 100,
-        y: 30 * window.height / 100
+      dotWidth: 3,
+      dotColor: '#e1e1e1e1',
+      linkColor: '#eaeaeaea',
+      dotCount: 100,
+      mouse: {
+        x: 1,
+        y: 1
       }
     }
   },
   mounted () {
     let self = this
     window.onmousemove = function (parameter) {
-      self.mousePosition.x = parameter.pageX
-      self.mousePosition.y = parameter.pageY
+      self.mouse.x = parameter.pageX
+      self.mouse.y = parameter.pageY
+      console.log(self.mouse)
     }
-    this.canvasDots()
+    this.start()
   },
   methods: {
-    canvasDots () {
+    start () {
       this.canvas = this.$refs.canvas
       this.canvas.width = window.innerWidth
       this.canvas.height = window.innerHeight
       this.ctx = this.canvas.getContext('2d')
 
-      this.canvas.style.display = 'block'
-      this.ctx.fillStyle = this.colorDot
-      this.ctx.lineWidth = 0.1
-      this.ctx.strokeStyle = this.color
+      const animate = () => {
+        requestAnimationFrame(animate)
+        this.ctx.fillStyle = 'rgba(0, 0, 0, 0.20)'
+        this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height)
+        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height)
 
-      this.mousePosition.x = window.innerWidth / 2
-      this.mousePosition.y = window.innerHeight / 2
+        this.arrayParticles.forEach((e) => {
+          e.update()
+          this.arrayPos.push(e)
+        })
 
-      setInterval(this.createDots, 2 / 30)
-    },
-    createDots () {
-      this.ctx.clearRect(0, 0, window.innerWidth, window.innerHeight)
-      for (this.i = 0; this.i < this.dots.nb; this.i++) {
-        this.dots.array.push(new Dot(this.canvas, this.ctx, this.dots, this.mousePosition))
-        this.dot = this.dots.array[this.i]
-        this.dot.create()
+        // Creation des liens entre chaque élement à moins de 250 de distance et de même couleurs
+        this.arrayPos.forEach((e) => {
+          if (e.x - this.mouse.x < 125 && e.x - this.mouse.x > -125 && e.x !== this.mouse.x && e.y - this.mouse.y < 125 && e.y - this.mouse.y > -125 && e.y !== this.mouse.y) {
+            this.ctx.beginPath()
+            this.ctx.moveTo(e.x, e.y)
+            this.ctx.lineWidth = 1
+            this.ctx.lineTo(this.mouse.x, this.mouse.y)
+            this.ctx.strokeStyle = this.linkColor
+            this.ctx.stroke()
+          }
+        })
+        this.arrayPos = []
       }
 
-      this.dot.line()
-      this.dot.animate()
+      for (let i = 0; i < this.dotCount; i++) {
+        let x = Math.random() * this.canvas.width
+        let y = Math.random() * this.canvas.height
+        let w = this.dotWidth
+        let dx = Math.random() - 0.5 * 2
+        let dy = Math.random() - 0.5 * 2
+        let speed = 1
+        this.arrayParticles.push(new Particle(this.canvas, this.ctx, x, y, w, dx, dy, speed, this.mouse, this.dotColor))
+      }
+      animate()
     }
   }
 }
