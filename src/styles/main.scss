@@ -1,9 +1,143 @@
-*, html, body, #app {
+@import '_colors.scss';
+
+html, body, #app {
+	width: 100%;
 	margin: 0;
 	padding: 0;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
 }
 
-canvas {
-	padding: 0;
-	margin: 0;
+* {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
 }
+
+#app {
+	position: relative;
+	width: 100%;
+	margin: 0;
+	padding: 20px;
+}
+
+/* CANVAS */
+#canvasHome {
+	overflow: hidden;
+	min-height: 100vh;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: 1;
+	canvas {
+		padding: 0;
+		margin: 0;
+	}
+}
+
+/* GLOBAL STYLE */
+h1 {
+	text-transform: uppercase;
+	font-size: 5em;
+	position: relative;
+	display: inline-block;
+	color: $darkgrey;
+	&::after {
+		content: '';
+		position: absolute;
+		left: 120%;
+		width: 2000px;
+		background-color: $maroon;
+		height: 2px;
+		top: calc(50% - 2px);
+	}
+}
+
+h2 {
+	color: $darkgrey;
+	font-size: 3em;
+
+}
+
+/* END GLOBAL STYLE*/
+
+/* HOMEPAGE */
+#home {
+	min-height: 100vh;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	width: 100%;
+	text-align: center;
+	background-color: $orange;
+	h1 {
+		text-transform: uppercase;
+		color: $white;
+		font-size: 5em;
+		&::first-letter {
+			color: $maroon;
+		}
+	}
+	h2 {
+		color: $white;
+		font-size: 3em;
+
+	}
+	& > *:not(#canvasHome) {
+		position: relative;
+		z-index: 2;
+		margin: 15px 0;
+		&.dot-container {
+			.dot {
+				padding: 10px;
+				margin: 0 15px;
+				background-color: $white;
+				display: inline-block;
+				width: 10px;
+				height: 10px;
+				-webkit-border-radius: 100%;
+				-moz-border-radius: 100%;
+				border-radius: 100%;
+				&.active {
+					background-color: $darkgrey;
+				}
+			}
+		}
+	}
+}
+
+/* END HOME*/
+
+/* CONTACT */
+#contact {
+	form {
+		width: 80%;
+		display: block;
+		margin: auto;
+		input, textarea {
+			color: $darkgrey;
+			margin: 50px 0;
+			border: none;
+			display: block;
+			width: 100%;
+			border-bottom: 1px solid $maroon;
+			&:active, &:focus {
+				box-shadow: none;
+				border: none;
+				border-bottom: 1px solid $maroon;
+			}
+			&[type=submit] {
+				background-color: transparent;
+				border: 2px solid $maroon;
+				padding: 10px 30px;
+				width: auto;
+				margin: auto;
+			}
+		}
+	}
+}
+
+/* END CONTACT */

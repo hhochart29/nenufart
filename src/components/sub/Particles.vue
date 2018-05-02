@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="canvasHome">
     <canvas ref="canvas"></canvas>
   </div>
 </template>
@@ -32,14 +32,13 @@ export default {
     window.onmousemove = function (parameter) {
       self.mouse.x = parameter.pageX
       self.mouse.y = parameter.pageY
-      console.log(self.mouse)
     }
     this.start()
   },
   methods: {
     start () {
       this.canvas = this.$refs.canvas
-      this.canvas.width = window.innerWidth
+      this.canvas.width = document.body.clientWidth
       this.canvas.height = window.innerHeight
       this.ctx = this.canvas.getContext('2d')
 
