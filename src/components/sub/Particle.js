@@ -20,7 +20,6 @@ class Particle {
     this.ctx.fillStyle = this.color
     this.ctx.fill()
     this.ctx.closePath()
-
   }
 
   update () {
@@ -45,7 +44,6 @@ class Particle {
     // }
     this.draw()
   }
-
 }
 
 export default Particle

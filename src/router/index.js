@@ -8,13 +8,13 @@ Vue.use(Router)
 export default new Router({
   mode: 'history',
   routes: [
-    // {
-    //   path: '/nenufart',
-    //   name: 'Home',
-    //   component: Home
-    // },
     {
-      path: '/nenufart/',
+      path: '/nenufart',
+      name: 'Home',
+      component: Home
+    },
+    {
+      path: '/nenufart/contact',
       name: 'Contact',
       component: Contact
     }

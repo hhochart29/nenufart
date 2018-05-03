@@ -16,6 +16,9 @@ html, body, #app {
 }
 
 #app {
+	overflow-x: hidden;
+}
+#app > *:not(#home) {
 	position: relative;
 	width: 100%;
 	margin: 0;
@@ -130,6 +133,7 @@ h2 {
 				border-bottom: 1px solid $maroon;
 			}
 			&[type=submit] {
+				cursor: pointer;
 				background-color: transparent;
 				border: 2px solid $maroon;
 				padding: 10px 30px;
