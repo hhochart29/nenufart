@@ -19,11 +19,11 @@ export default {
       dot: [],
       dotWidth: 3,
       dotColor: '#e1e1e1e1',
-      linkColor: '#eaeaeaea',
-      dotCount: 100,
+      dotCount: 1000,
+      distanceFromMouse: 125,
       mouse: {
-        x: 1,
-        y: 1
+        x: -2000,
+        y: -2000
       }
     }
   },
@@ -55,12 +55,14 @@ export default {
 
         // Creation des liens entre chaque élement à moins de 250 de distance et de même couleurs
         this.arrayPos.forEach((e) => {
-          if (e.x - this.mouse.x < 125 && e.x - this.mouse.x > -125 && e.x !== this.mouse.x && e.y - this.mouse.y < 125 && e.y - this.mouse.y > -125 && e.y !== this.mouse.y) {
+          let distance = Math.hypot(e.x - this.mouse.x, e.y - this.mouse.y)
+          if (distance < 200) {
+            let opacity = Particle.range(distance, 0, 200, 1, 0)
             this.ctx.beginPath()
             this.ctx.moveTo(e.x, e.y)
             this.ctx.lineWidth = 1
             this.ctx.lineTo(this.mouse.x, this.mouse.y)
-            this.ctx.strokeStyle = this.linkColor
+            this.ctx.strokeStyle = `rgba(255,255,255, ${opacity})`
             this.ctx.stroke()
           }
         })

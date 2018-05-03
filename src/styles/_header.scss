@@ -1,0 +1,47 @@
+#home {
+	min-height: 100vh;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	width: 100%;
+	text-align: center;
+	background-color: $orange;
+	transition: background-color 0.3s ease-in-out;
+	h1 {
+		text-transform: uppercase;
+		color: $white;
+		font-size: 5em;
+		&::after {
+			content: none;
+		}
+		&::first-letter {
+			color: $maroon;
+		}
+	}
+	h2 {
+		color: $white;
+		font-size: 3em;
+
+	}
+	& > *:not(#canvasHome) {
+		position: relative;
+		z-index: 2;
+		margin: 15px 0;
+		&.dot-container {
+			.dot {
+				padding: 10px;
+				margin: 0 15px;
+				background-color: $white;
+				display: inline-block;
+				width: 10px;
+				height: 10px;
+				-webkit-border-radius: 100%;
+				-moz-border-radius: 100%;
+				border-radius: 100%;
+				&.active {
+					background-color: $darkgrey;
+				}
+			}
+		}
+	}
+}
