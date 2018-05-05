@@ -18,8 +18,8 @@ export default {
       arrayParticles: [],
       dot: [],
       dotWidth: 3,
-      dotColor: '#e1e1e1e1',
-      dotCount: 1000,
+      dotColor: 'rgba(0,0,0,0.03)',
+      dotCount: 200,
       distanceFromMouse: 125,
       mouse: {
         x: -2000,
@@ -54,16 +54,26 @@ export default {
         })
 
         // Creation des liens entre chaque élement à moins de 250 de distance et de même couleurs
+        let opacity
         this.arrayPos.forEach((e) => {
           let distance = Math.hypot(e.x - this.mouse.x, e.y - this.mouse.y)
           if (distance < 200) {
-            let opacity = Particle.range(distance, 0, 200, 1, 0)
-            this.ctx.beginPath()
-            this.ctx.moveTo(e.x, e.y)
-            this.ctx.lineWidth = 1
-            this.ctx.lineTo(this.mouse.x, this.mouse.y)
-            this.ctx.strokeStyle = `rgba(255,255,255, ${opacity})`
-            this.ctx.stroke()
+            this.arrayPos.forEach((f) => {
+              let distance2 = Math.hypot(f.x - this.mouse.x, f.y - this.mouse.y)
+              if (distance2 < 200) {
+                if (distance2 > distance) {
+                  opacity = Particle.range(distance2, 0, 200, 0.1, 0)
+                } else {
+                  opacity = Particle.range(distance, 0, 200, 0.1, 0)
+                }
+                this.ctx.beginPath()
+                this.ctx.moveTo(e.x, e.y)
+                this.ctx.lineWidth = 1
+                this.ctx.lineTo(f.x, f.y)
+                this.ctx.strokeStyle = `rgba(0,0,0, ${opacity})`
+                this.ctx.stroke()
+              }
+            })
           }
         })
         this.arrayPos = []
@@ -73,8 +83,8 @@ export default {
         let x = Math.random() * this.canvas.width
         let y = Math.random() * this.canvas.height
         let w = this.dotWidth
-        let dx = Math.random() - 0.5 * 2
-        let dy = Math.random() - 0.5 * 2
+        let dx = (Math.random() - 0.5) * 2
+        let dy = (Math.random() - 0.5) * 2
         let speed = 1
         this.arrayParticles.push(new Particle(this.canvas, this.ctx, x, y, w, dx, dy, speed, this.mouse, this.dotColor))
       }
