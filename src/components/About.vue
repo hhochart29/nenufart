@@ -60,7 +60,7 @@ export default {
   created () {
     Axios.get(this.url).then((response) => {
       this.pages = response.data
-      console.log(this.pages)
+      console.log(this.pages.acf)
     })
   }
 }
