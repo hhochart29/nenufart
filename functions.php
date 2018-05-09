@@ -56,3 +56,11 @@ function remove_some_metas()
 }
 
 add_action('after_setup_theme', 'remove_some_metas');
+
+function nenu_unregister_tags() {
+    unregister_taxonomy_for_object_type('post_tag', 'post');
+    unregister_taxonomy_for_object_type('category', 'post');
+}
+add_action('init', 'nenu_unregister_tags');
+
+add_theme_support( 'post-thumbnails' );
