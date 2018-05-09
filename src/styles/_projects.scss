@@ -1,0 +1,12 @@
+.project-item{
+    display: flex;
+    > div {
+        width: 50%;
+    }
+}
+
+.project-thumbnail{
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}

@@ -28,7 +28,7 @@ export default {
       fetchedSlides: [],
       activeSlide: null,
       color: '#ffffff',
-      url: 'wp-json/wp/v2/pages'
+      url: '/wp-json/wp/v2/pages'
     }
   },
   methods: {
@@ -49,6 +49,8 @@ export default {
       response.data.forEach((e) => {
         e.active = false
       })
+      console.log(response.data);
+      
       response.data[response.data.length - 1].active = true
       this.fetchedSlides = response.data.reverse()
       this.setColor()
