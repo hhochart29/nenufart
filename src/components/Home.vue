@@ -1,7 +1,7 @@
 <template>
   <div id="home" :style="{backgroundColor: color}">
     <div v-for="slide in fetchedSlides" v-if="slide.acf.subtitle === $route.name">
-      <transition appear mode="out-in" name="component-fade">
+      <transition appear mode="out-in" name="fade">
         <div class="titles">
           <h1>{{ slide.title.rendered }}</h1>
           <h2>{{ slide.acf.subtitle }}</h2>
@@ -27,7 +27,8 @@ export default {
     return {
       fetchedSlides: [],
       activeSlide: null,
-      color: '#ffffff'
+      color: '#ffffff',
+      url: 'wp-json/wp/v2/pages'
     }
   },
   methods: {
@@ -44,7 +45,7 @@ export default {
     }
   },
   created () {
-    Axios.get('wp-json/wp/v2/pages').then((response) => {
+    Axios.get(this.url).then((response) => {
       response.data.forEach((e) => {
         e.active = false
       })
@@ -56,12 +57,12 @@ export default {
 }
 </script>
 
-<style lang="scss">
-  .component-fade-enter-active, .component-fade-leave-active {
+<style lang="scss" scoped>
+  .fade-enter-active, .fade-leave-active {
     transition: all 1s ease;
   }
 
-  .component-fade-enter, .component-fade-leave-to {
+  .fade-enter, .fade-leave-to {
     opacity: 0;
     transform: translate3d(0, -10%, 0);
   }

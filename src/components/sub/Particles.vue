@@ -17,8 +17,8 @@ export default {
       arrayPos: [],
       arrayParticles: [],
       dot: [],
-      dotWidth: 3,
-      dotColor: 'rgba(0,0,0,0.03)',
+      dotWidth: 2,
+      dotColor: 'rgba(0,0,0,0.08)',
       dotCount: 200,
       distanceFromMouse: 125,
       mouse: {
@@ -83,8 +83,8 @@ export default {
         let x = Math.random() * this.canvas.width
         let y = Math.random() * this.canvas.height
         let w = this.dotWidth
-        let dx = (Math.random() - 0.5) * 2
-        let dy = (Math.random() - 0.5) * 2
+        let dx = (Math.random() - 0.5)
+        let dy = (Math.random() - 0.5)
         let speed = 1
         this.arrayParticles.push(new Particle(this.canvas, this.ctx, x, y, w, dx, dy, speed, this.mouse, this.dotColor))
       }
