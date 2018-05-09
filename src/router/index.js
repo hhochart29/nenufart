@@ -25,7 +25,8 @@ export default new Router({
             name: 'Projets',
             component: Projets
         },
-        { 
+        {
+            name: 'Projet',            
             path: '/projet/:slug',
             component: Projet
         }
