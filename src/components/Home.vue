@@ -1,6 +1,6 @@
 <template>
   <div id="home" :style="{backgroundColor: color}">
-    <div v-for="slide in fetchedSlides" v-if="slide.acf.subtitle === currentRoute">
+    <div v-for="slide in fetchedSlides" v-if="slide.acf.subtitle === currentRoute" :key="slide.acf.subtitle">
       <transition appear mode="out-in" name="fade">
         <div class="titles">
           <h1>{{ slide.title.rendered }}</h1>
@@ -10,7 +10,7 @@
     </div>
     <div class="dot-container">
       <div class="dot" v-for="slide in fetchedSlides" :class="{'active': slide.acf.subtitle === currentRoute}"
-           @click="toggleSlide(slide)"></div>
+           @click="toggleSlide(slide)" :key="slide.acf.subtitle"></div>
     </div>
     <Particles></Particles>
   </div>
@@ -49,7 +49,7 @@ export default {
       this.setColor()
     },
     setColor () {
-      this.fetchedSlides.forEach((slide) => {
+      this.fetchedSlides.forEach(slide => {
         if (slide.acf.subtitle === this.currentRoute) {
           this.color = slide.acf.bg_color
         }
@@ -57,11 +57,10 @@ export default {
     }
   },
   created () {
-    Axios.get(this.url).then((response) => {
-      response.data.forEach((e) => {
+    Axios.get(this.url).then(response => {
+      response.data.forEach(e => {
         e.active = false
       })
-      console.log(response.data)
       response.data[response.data.length - 1].active = true
       this.fetchedSlides = response.data.reverse()
       this.setColor()
@@ -79,17 +78,18 @@ export default {
         this.currentRoute = 'Projets'
         break
     }
-    console.log(this.$route.name, this.currentRoute)
   }
 }
 </script>
 
 <style lang="scss" scoped>
-  .fade-enter-active, .fade-leave-active {
+  .fade-enter-active,
+  .fade-leave-active {
     transition: all 1s ease;
   }
 
-  .fade-enter, .fade-leave-to {
+  .fade-enter,
+  .fade-leave-to {
     opacity: 0;
     transform: translate3d(0, -10%, 0);
   }

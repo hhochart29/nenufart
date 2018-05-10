@@ -1,18 +1,29 @@
 /* CONTACT */
 #contact {
+	font-family: Dosis, serif;
+	font-weight: normal;
+	min-height: 100vh;
 	form {
+		flex-direction: column;
+		justify-content: center;
+		display: flex;
 		width: 80%;
-		display: block;
-		margin: auto;
+		margin: 50px auto;
 		input, textarea {
+			font-family: Dosis, serif;
+			color: $lightgrey;
 			background-color: $white;
-			color: $darkgrey;
+			font-size: 22px;
 			margin: 50px 0;
 			border: none;
-			min-height: 25px;
+			min-height: 50px;
 			display: block;
 			width: 100% !important;
 			border-bottom: 1px solid $maroon;
+			&::placeholder {
+				font-family: Dosis, serif;
+				color: $lightgrey;
+			}
 			&:active, &:focus {
 				box-shadow: none;
 				border: none;
@@ -20,7 +31,8 @@
 			}
 			&[type=submit] {
 				cursor: pointer;
-				background-color: transparent;
+				color: $maroon;
+				background-color: $white;
 				border: 2px solid $maroon;
 				padding: 10px 30px;
 				width: auto;
