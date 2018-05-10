@@ -8,27 +8,27 @@ import Projet from '@/components/Projet'
 Vue.use(Router)
 
 export default new Router({
-    mode: 'history',
-    routes: [
-        {
-            path: '/',
-            name: 'About',
-            component: About
-        },
-        {
-            path: '/contact',
-            name: 'Contact',
-            component: Contact
-        },
-        {
-            path: '/projets',
-            name: 'Projets',
-            component: Projets
-        },
-        {
-            name: 'Projet',            
-            path: '/projet/:slug',
-            component: Projet
-        }
-    ]
+  mode: 'history',
+  routes: [
+    {
+      path: '/',
+      name: 'About',
+      component: About
+    },
+    {
+      path: '/contact',
+      name: 'Contact',
+      component: Contact
+    },
+    {
+      path: '/projets',
+      name: 'Projets',
+      component: Projets
+    },
+    {
+      name: 'Projet',
+      path: '/projet/:slug',
+      component: Projet
+    }
+  ]
 })

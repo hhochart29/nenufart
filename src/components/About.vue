@@ -53,7 +53,7 @@ export default {
   name: 'About',
   data () {
     return {
-      url: 'wp-json/wp/v2/pages/2',
+      url: './wp-json/wp/v2/pages/2',
       pages: ''
     }
   },

@@ -34,20 +34,19 @@ export default {
   },
   methods: {
     toggleSlide (slide) {
-        this.$router.push({name: slide.acf.subtitle})
-        switch (this.$route.name) {
-            case 'Contact':
-            case 'About':
-            case 'Projets':
-                this.currentRoute = this.$route.name;
-                break;
-        
-            default:
-                this.currentRoute = 'Projets';            
-                break;
-        }
-        this.setColor();
-        
+      this.$router.push({name: slide.acf.subtitle})
+      switch (this.$route.name) {
+        case 'Contact':
+        case 'About':
+        case 'Projets':
+          this.currentRoute = this.$route.name
+          break
+
+        default:
+          this.currentRoute = 'Projets'
+          break
+      }
+      this.setColor()
     },
     setColor () {
       this.fetchedSlides.forEach((slide) => {
@@ -59,29 +58,28 @@ export default {
   },
   created () {
     Axios.get(this.url).then((response) => {
-        response.data.forEach((e) => {
-            e.active = false
-        })
-        console.log(response.data);
-        response.data[response.data.length - 1].active = true
-        this.fetchedSlides = response.data.reverse()
-        this.setColor()
+      response.data.forEach((e) => {
+        e.active = false
+      })
+      console.log(response.data)
+      response.data[response.data.length - 1].active = true
+      this.fetchedSlides = response.data.reverse()
+      this.setColor()
     })
   },
   mounted () {
     switch (this.$route.name) {
-        case 'Contact':
-        case 'About':
-        case 'Projets':
-            this.currentRoute = this.$route.name;
-            break;
-    
-        default:
-            this.currentRoute = 'Projets';            
-            break;
+      case 'Contact':
+      case 'About':
+      case 'Projets':
+        this.currentRoute = this.$route.name
+        break
+
+      default:
+        this.currentRoute = 'Projets'
+        break
     }
-    console.log(this.$route.name, this.currentRoute);
-        
+    console.log(this.$route.name, this.currentRoute)
   }
 }
 </script>
