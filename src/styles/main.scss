@@ -49,6 +49,7 @@ html, body, #app {
 
 /* GLOBAL STYLE */
 h1, h3 {
+	font-family: Dosis, serif;
 	text-transform: uppercase;
 	position: relative;
 	display: inline-block;
@@ -69,6 +70,7 @@ h1 {
 }
 
 h2 {
+	font-family: Dosis, serif;
 	color: $darkgrey;
 	font-size: 3em;
 }

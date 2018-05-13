@@ -21,6 +21,6 @@ if ( !empty($errors)) {
     $headers = 'FROM : '.$data->email;
     $message = 'Nom : '.$data->name;
     $message .= ' '.$data->message;
-    mail('xxxxx', 'Formulaire de contact', $message, $headers);
-    echo json_encode('Success !');
+    mail('h.hochart29@gmail.com', 'Formulaire de contact', $message, $headers);
+    echo json_encode(['success' => 'Votre mail a bien été envoyé!']);
 }

@@ -3,16 +3,33 @@
     <h1>{{ title }}</h1>
 
     <form action="#">
-      <input type="text" placeholder="Votre Nom" v-model="name">
-      <input type="text" placeholder="Votre E-mail" v-model="email">
-      <label>
-        <textarea class="textinput" v-model="message"></textarea>
-      </label>
-      <input type="submit" @click.prevent="submit()" value="Envoyer">
+      <div class="input-group">
+        <input type="text" placeholder="Votre Nom" v-model="name">
+        <transition name="fade">
+          <div class="form-return error" v-if="formFeedbackMessages.name">{{ formFeedbackMessages.name }}</div>
+        </transition>
+      </div>
+      <div class="input-group">
+        <input type="text" placeholder="Votre E-mail" v-model="email">
+        <transition name="fade">
+        <div class="form-return error" v-if="formFeedbackMessages.mail">{{ formFeedbackMessages.mail }}</div>
+        </transition>
+      </div>
+      <div class="input-group">
+        <label>
+          <textarea class="textinput" v-model="message"></textarea>
+        </label>
+        <transition name="fade">
+        <div class="form-return error" v-if="formFeedbackMessages.message">{{ formFeedbackMessages.message }}</div>
+        </transition>
+      </div>
+      <div class="input-group">
+        <input type="submit" @click.prevent="submit()" value="Envoyer">
+        <transition name="fade">
+        <div class="form-return success" v-if="formFeedbackMessages.success">{{ formFeedbackMessages.success }}</div>
+        </transition>
+      </div>
     </form>
-    <div v-if="formFeedbackMessages" v-for="formFeedbackMessage in formFeedbackMessages">
-      <b>{{ formFeedbackMessage }}</b><br>
-    </div>
   </div>
 </template>
 
@@ -45,3 +62,16 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+  .fade-enter-active,
+  .fade-leave-active {
+    transition: all 1s ease;
+  }
+
+  .fade-enter,
+  .fade-leave-to {
+    opacity: 0;
+    transform: translate3d(0, -10%, 0);
+  }
+</style>
