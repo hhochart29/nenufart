@@ -1,6 +1,8 @@
 <template>
-  <div class="container">
-    <h3>Qui-suis-je ?</h3>
+  <div class="relative">
+    <div class="container">
+
+        <h3>Qui-suis-je ?</h3>
 
     <div class="container whoami-container">
       <div id="about-img" v-if="this.page.whoami_img">
@@ -46,8 +48,11 @@
 
 <script>
 import Axios from 'axios'
+import BackToTop from '@/components/sub/BackToTop'
+
 
 export default {
+  components: {BackToTop},
   name: 'About',
   data () {
     return {

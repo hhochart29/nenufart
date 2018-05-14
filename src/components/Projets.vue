@@ -1,5 +1,5 @@
 <template>
-  <div v-if="projects.length">
+  <div class='relative' v-if="projects.length">
     <div class='project-item' v-for="project in projects" :key="project.id">
       <div class='project-info'>
         <span class="category">{{ project.acf.categorie }}</span>
@@ -12,13 +12,16 @@
 
       </div>
     </div>
+    <BackToTop></BackToTop>    
   </div>
 </template>
 
 <script>
 import Axios from 'axios'
+import BackToTop from '@/components/sub/BackToTop'
 
 export default {
+  components: {BackToTop},    
   name: 'Projets',
   data () {
     return {
