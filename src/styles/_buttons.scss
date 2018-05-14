@@ -5,3 +5,22 @@
     padding: 10px 17px 12px 25px;
     border: 1px solid currentColor;
 }
+
+
+.btt{
+    cursor: pointer;
+    position: sticky;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;    
+    bottom: 30px;
+    left: calc(100vw - 100px);
+    height: 70px;
+    width: 70px;
+    background-color: #424141;
+    > svg {
+        height: 45px;
+        width: 45px;
+    }
+}

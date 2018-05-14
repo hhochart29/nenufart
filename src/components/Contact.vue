@@ -1,5 +1,5 @@
 <template>
-  <div id="contact">
+  <div id="contact" class='container'>
     <h1>{{ title }}</h1>
 
     <form action="#">

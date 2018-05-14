@@ -1,55 +1,63 @@
 <template>
-  <div class="container">
-    <h3>Qui-suis-je ?</h3>
+  <div class="relative">
+    <div class="container">
 
-    <div class="container whoami-container">
-      <div id="about-img">
-        <img src="http://via.placeholder.com/500x500" alt="">
-      </div>
+        <h3>Qui-suis-je ?</h3>
 
-      <div id="about-desc">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut commodi, cumque eum expedita fuga laboriosam
-        laborum
-        nam pariatur perferendis possimus qui quis ratione saepe sequi sunt tempora ut vero voluptatem.
-      </div>
-
-      <div class="activities">
-        <div class="activity">
-          <img src="http://via.placeholder.com/150x150" alt="">
-          <div class="activity-name">Cuisine</div>
+        <div class="container whoami-container">
+        <div id="about-img">
+            <img src="http://via.placeholder.com/500x500" alt="">
         </div>
 
-        <div class="activity">
-          <img src="http://via.placeholder.com/150x150" alt="">
-          <div class="activity-name">Voyage</div>
+        <div id="about-desc">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut commodi, cumque eum expedita fuga laboriosam
+            laborum
+            nam pariatur perferendis possimus qui quis ratione saepe sequi sunt tempora ut vero voluptatem.
         </div>
 
-        <div class="activity">
-          <img src="http://via.placeholder.com/150x150" alt="">
-          <div class="activity-name">Dessin</div>
+        <div class="activities">
+            <div class="activity">
+            <img src="http://via.placeholder.com/150x150" alt="">
+            <div class="activity-name">Cuisine</div>
+            </div>
 
-        </div>
-        <div class="activity">
-          <img src="http://via.placeholder.com/150x150" alt="">
-          <div class="activity-name">Musique</div>
+            <div class="activity">
+            <img src="http://via.placeholder.com/150x150" alt="">
+            <div class="activity-name">Voyage</div>
+            </div>
 
-        </div>
-        <div class="activity">
-          <img src="http://via.placeholder.com/150x150" alt="">
-          <div class="activity-name">Bricolage</div>
+            <div class="activity">
+            <img src="http://via.placeholder.com/150x150" alt="">
+            <div class="activity-name">Dessin</div>
 
+            </div>
+            <div class="activity">
+            <img src="http://via.placeholder.com/150x150" alt="">
+            <div class="activity-name">Musique</div>
+
+            </div>
+            <div class="activity">
+            <img src="http://via.placeholder.com/150x150" alt="">
+            <div class="activity-name">Bricolage</div>
+
+            </div>
         </div>
-      </div>
+        </div>
+
+        <h3>Parcours</h3>
     </div>
-
-    <h3>Parcours</h3>
+    
+    <BackToTop></BackToTop>        
   </div>
 </template>
 
 <script>
 import Axios from 'axios'
+import BackToTop from '@/components/sub/BackToTop'
+
 
 export default {
+  components: {BackToTop},    
   name: 'About',
   data () {
     return {
