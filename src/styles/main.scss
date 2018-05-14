@@ -1,9 +1,20 @@
 @import url('https://fonts.googleapis.com/css?family=Dosis:500,700');
 @import '_colors.scss';
 @import '_header.scss';
+@import '_buttons.scss';
 @import '_projects.scss';
 @import '_about.scss';
 @import '_contact.scss';
+
+html{
+    font-size: 62.5%; /* sets the base font to 10px for easier math */
+}
+
+body{
+    font: 500 1.6em / 1.2 'Dosis';
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
 
 html, body, #app {
 	width: 100%;
@@ -21,15 +32,22 @@ html, body, #app {
 }
 
 #app {
-	overflow-x: hidden;
+    font-size: 2.5rem;
 }
 
-#app > *:not(#home) {
-	position: relative;
-	width: 100%;
-	margin: 0;
-	padding: 20px;
+.container{
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 20px;
+    width: 100%;
 }
+
+// #app > *:not(#home) {
+// 	position: relative;
+// 	width: 100%;
+// 	margin: 0;
+// 	padding: 20px;
+// }
 
 /* CANVAS */
 #canvasHome {
@@ -66,17 +84,20 @@ h1, h3 {
 
 h1 {
 	font-size: 5em;
-	color: $darkgrey;
+    color: $darkgrey;
+    font-weight: 500;
 }
 
 h2 {
 	font-family: Dosis, serif;
-	color: $darkgrey;
+    color: $darkgrey;
+    font-weight: 500;
 	font-size: 3em;
 }
 
 h3 {
-	font-size: 2em;
+    font-size: 7rem;
+    font-weight: 500;
 	color: $darkgrey;
 }
 

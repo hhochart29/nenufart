@@ -2,10 +2,10 @@
   <div>
     <div class='project-item' v-for="project in projects" :key="project.id">
       <div class='project-info'>
-        <span>{{ project.acf.categorie }}</span>
+        <span class="category">{{ project.acf.categorie }}</span>
         <h2>{{ project.acf.Title }}</h2>
-        <span>{{ project.acf.subtitle }}</span>
-        <router-link :to="'/projet/' + project.slug">Home</router-link>
+        <span class='subtitle'>{{ project.acf.subtitle }}</span>
+        <router-link class='cta' :to="'/projet/' + project.slug">En découvrir&nbsp;+</router-link>
       </div>
 
       <div class='project-thumbnail' :style="{ backgroundImage: `url(${project._embedded['wp:featuredmedia']['0'].source_url})` }">

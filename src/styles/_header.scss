@@ -10,7 +10,7 @@
 	h1 {
 		text-transform: uppercase;
 		color: $white;
-		font-size: 5em;
+        font-size: 9.5rem;
 		&::after {
 			content: none;
 		}
@@ -20,7 +20,7 @@
 	}
 	h2 {
 		color: $white;
-		font-size: 3em;
+		font-size: 3.7rem;
 
 	}
 	& > *:not(#canvasHome) {

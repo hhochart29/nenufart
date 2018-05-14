@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container">
     <h3>Qui-suis-je ?</h3>
 
     <div class="container whoami-container">
