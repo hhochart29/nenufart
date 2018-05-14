@@ -1,8 +1,17 @@
 .project-item{
     display: flex;
-
     > div {
         width: 50%;
+    }
+    &:nth-child(even){
+        > div {
+            &:first-child{
+                order: 2;
+            }
+            &:last-child{
+                order: 1;
+            }
+        }
     }
 }
 
@@ -18,7 +27,6 @@
     align-items: flex-start;
     padding: 35px 45px 50px;
     background-color: #3b3a3a;
-    
     color: white;
     .category{
         font-size: 7rem;
