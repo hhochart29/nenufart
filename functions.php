@@ -64,3 +64,20 @@ function nenu_unregister_tags() {
 add_action('init', 'nenu_unregister_tags');
 
 add_theme_support( 'post-thumbnails' );
+
+function add_links_api($response, $post, $request) {
+
+    global $post;
+    // Get the so-called next post.
+    $next = get_adjacent_post( false, '', false );
+    // Get the so-called previous post.
+    $previous = get_adjacent_post( false, '', true );
+    // Format them a bit and only send id and slug (or null, if there is no next/previous post).
+    $response->data['next'] = ( is_a( $next, 'WP_Post') ) ? array( "id" => $next->ID, "slug" => $next->post_name ) : null;
+    $response->data['previous'] = ( is_a( $previous, 'WP_Post') ) ? array( "id" => $previous->ID, "slug" => $previous->post_name ) : null;
+
+    return $response;
+}
+
+// Add filter to respond with next and previous post in post response.
+add_filter( 'rest_prepare_post', 'add_links_api', 10, 3 );
