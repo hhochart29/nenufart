@@ -15,6 +15,10 @@
     }
 }
 
+.projects-list{
+    margin-bottom: -100px;
+}
+
 .project-thumbnail{
     background-size: cover;
     background-position: center center;
@@ -45,5 +49,46 @@
         overflow: hidden;        
         white-space: nowrap;
         text-overflow: ellipsis;
+    }
+}
+
+.single-project{
+    margin-bottom: -100px;
+}
+
+.header-img{
+    display: block;
+    width: 100%;
+}
+
+.project-top{
+    padding: 60px 0 30px;
+    color: white;
+}
+
+.project-table{
+    
+    .table-item{
+        display: flex;
+        margin: 0 0 50px;
+    }
+    .table-text{
+        font-size: 1.8rem;
+    }
+    .table-title{
+        width: 180px;
+        flex-shrink: 0;
+    }
+}
+
+.project-content-text{
+    font-size: 1.8rem;
+    margin: 10rem 0 0;
+}
+
+.project-img{
+    > .container-small{
+        padding-top: 50px;
+        padding-bottom: 50px;
     }
 }

@@ -1,13 +1,37 @@
 <template>
-  <div v-if="project">
-    <span>{{project.acf.Title}}</span>
+  <div class='relative' v-if="project">
+    <div class='single-project'>
+        <img class='header-img' :src="project.acf.header.url" :alt="project.acf.header.alt" />
+        <div class='project-top' :style="{ backgroundColor: project.acf.color }">
+            <div class='container-medium'>
+                <div class='project-table'>
+                    <div class='table-item' v-for='item in project.acf.text_table'>
+                        <span class='table-title'>{{item.titre}}</span>
+                        <span class='table-text'>{{item.text}}</span>
+                    </div>
+                </div>
+                <div class='project-content-text' v-html='project.acf.content'></div>
+            </div>
+        </div>
+        <div class='project-images'>
+            <div class='project-img' v-for='img in project.acf.images'  :style="{ backgroundColor: img.bg_color }">
+                <div :class="{'container-small': !img.full_width, 'container': img.full_width }">
+                    <img class='header-img' :src="img.image.url" :alt="img.image.alt" />
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <BackToTop></BackToTop>        
   </div>
 </template>
 
 <script>
 import Axios from 'axios'
+import BackToTop from '@/components/sub/BackToTop'
 
 export default {
+  components: {BackToTop},
   name: 'Projet',
   data () {
     return {

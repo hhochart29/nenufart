@@ -43,6 +43,20 @@ html, body, #app {
     width: 100%;
 }
 
+.container-medium{
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px;
+    width: 100%;
+}
+
+.container-small{
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 0 20px;
+    width: 100%;
+}
+
 .relative{
     position: relative;
 }
@@ -104,6 +118,11 @@ h3 {
     font-size: 7rem;
     font-weight: 500;
 	color: $darkgrey;
+}
+
+img{
+    max-width: 100%;
+    height: auto;
 }
 
 /* END GLOBAL STYLE*/
