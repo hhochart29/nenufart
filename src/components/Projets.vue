@@ -12,7 +12,7 @@
 
       </div>
     </div>
-    <BackToTop></BackToTop>    
+    <BackToTop></BackToTop>
   </div>
 </template>
 
@@ -21,7 +21,7 @@ import Axios from 'axios'
 import BackToTop from '@/components/sub/BackToTop'
 
 export default {
-  components: {BackToTop},    
+  components: {BackToTop},
   name: 'Projets',
   data () {
     return {
@@ -32,7 +32,7 @@ export default {
   created () {
     Axios.get(this.url).then((response) => {
       this.projects = response.data
-      console.log(response.data);
+      console.log(response.data)
     })
   }
 }
