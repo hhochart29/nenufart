@@ -41,3 +41,15 @@
         }
     }
 }
+
+@media (max-width: 780px){
+    .btt{
+        height: 50px;
+        width: 50px;
+        > svg {
+            height: 25px;
+            width: 25px;
+        }
+    }
+}
+

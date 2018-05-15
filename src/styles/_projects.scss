@@ -16,7 +16,7 @@
 }
 
 .projects-list{
-    margin-bottom: -100px;
+    margin-bottom: -170px;
 }
 
 .project-thumbnail{
@@ -68,7 +68,6 @@
 }
 
 .project-table{
-    
     .table-item{
         display: flex;
         margin: 0 0 50px;
@@ -91,5 +90,49 @@
     > .container-small{
         padding-top: 50px;
         padding-bottom: 50px;
+    }
+}
+
+@media (max-width: 1100px){
+    .project-info{
+        .category{
+            font-size: 5rem;
+        }
+        h2 {
+            margin: 3rem 0;
+        }
+    }
+}
+
+
+@media (max-width: 780px){
+    .project-item{
+        > .project-info{
+            width: 100%;
+        }
+        &:nth-child(even){
+            > .project-info {
+                align-items: flex-end;
+            }
+        }
+    }
+    .project-thumbnail{
+        display: none;
+    }
+}
+
+@media (max-width: 580px){
+    .project-table{
+        .table-item{
+            flex-direction: column;
+        }
+        .table-title{
+            margin: 0 0 15px;
+        }
+    }
+    .project-info{
+        .category{
+            font-size: 3rem;
+        }
     }
 }
