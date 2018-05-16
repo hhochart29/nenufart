@@ -1,12 +1,21 @@
 <template>
   <div id="home" :style="{backgroundColor: color}">
     <div v-for="slide in fetchedSlides" v-if="slide.acf.subtitle === currentRoute" :key="slide.acf.subtitle">
-      <transition appear mode="out-in" name="fade">
+      <transition appear mode="out-in" @enter="enterTitle" @leave="leaveTitle">
         <div class="titles">
-          <h1>{{ slide.title.rendered }}</h1>
-          <h2>{{ slide.acf.subtitle }}</h2>
+          <h1 class='ml9'>
+            <span class="text-wrapper">
+              <span class="letters">{{ slide.title.rendered }}</span>
+            </span>
+          </h1>
+          <h2 class='ml9'>
+            <span class="text-wrapper">
+              <span class="letters">{{ slide.acf.subtitle }}</span>
+            </span>
+          </h2>
         </div>
       </transition>
+
     </div>
     <div class="dot-container">
       <div class="dot" v-for="slide in fetchedSlides" :class="{'active': slide.acf.subtitle === currentRoute}"
@@ -19,6 +28,7 @@
 <script>
 import Particles from '@/components/sub/Particles'
 import Axios from 'axios'
+import anime from 'animejs'
 
 export default {
   name: 'Home',
@@ -54,7 +64,37 @@ export default {
           this.color = slide.acf.bg_color
         }
       })
-    }
+    },
+    enterTitle : function(){
+      console.log('enter');
+      
+      document.querySelectorAll('.ml9 .letters').forEach(function(el){
+        console.log(el);
+        
+        el.innerHTML = el.textContent.replace(/([^\x00-\x80]|\w)/g, "<span class='letter'>$&</span>");
+      });
+
+      anime.timeline()
+        .add({
+          targets: '.ml9 .letter',
+          scale: [0, 1],
+          duration: 1500,
+          elasticity: 600,
+          delay: function(el, i) {
+            return 45 * (i+1)
+          }
+        });
+    },
+    leaveTitle(){
+      anime.timeline()
+      .add({
+          targets: '.ml9',
+          opacity: 0,
+          duration: 1000,
+          easing: "easeOutExpo",
+          delay: 1000
+        });
+    },
   },
   created () {
     Axios.get(this.url).then(response => {
@@ -83,14 +123,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  .fade-enter-active,
-  .fade-leave-active {
-    transition: all 1s ease;
-  }
 
-  .fade-enter,
-  .fade-leave-to {
-    opacity: 0;
-    transform: translate3d(0, -10%, 0);
-  }
 </style>

@@ -1,0 +1,24 @@
+.ml9{
+  display: block;
+  position: relative;
+}
+.ml9 .text-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.ml9 .letter {
+  transform-origin: 50% 100%;
+  display: inline-block;
+  line-height: 1em;
+}
+
+h1.ml9{
+  .letter{
+    transition: color 0.1s ease-in-out;
+    cursor: default;
+    &:hover{
+      color: $maroon;
+    }
+  }
+}
