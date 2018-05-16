@@ -17,7 +17,7 @@
         <div id="about-desc" v-html="this.page.whoami_content"></div>
 
         <div class="activities" v-if="this.page.whoami_passion">
-          <div class="activity" v-for="passion in this.page.whoami_passion">
+          <div class="activity" v-for="passion in this.page.whoami_passion" :key="passion.text">
             <img :src="passion.icon.url" :alt="passion.text">
             <div class="activity-name">{{ passion.text }}</div>
           </div>
@@ -32,7 +32,7 @@
         </span>
       </h3>
       <div class="ecoles">
-        <div class="ecole" v-for="ecole in this.page.ecole">
+        <div class="ecole" v-for="ecole in this.page.ecole" :key="ecole.title">
           <div class="left-wrapper">
             <div class="ecole-name">
               {{ ecole.title }}
@@ -40,7 +40,7 @@
             <div class="ecole-date">
               {{ ecole.date }}
             </div>
-            <div class="ecole-skill" v-for="competence in ecole.competences">
+            <div class="ecole-skill" v-for="competence in ecole.competences" :key="competence.skill">
               {{ competence.skill }}
             </div>
           </div>
@@ -75,14 +75,11 @@ export default {
   created () {
     Axios.get(this.url).then((response) => {
       this.page = response.data.acf
-      console.log(response.data)
     })
   },
   methods: {
     revealh3 (event) {
       const target = event.currentTarget
-
-      console.log(target.querySelector('.letters').textContent)
 
       target.querySelector('.letters').innerHTML = target.querySelector('.letters').textContent.replace(/[^ ]/ig, '<span class=\'letter\'>$&</span>')
 
