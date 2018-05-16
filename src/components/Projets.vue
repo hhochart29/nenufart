@@ -1,15 +1,19 @@
 <template>
   <div class='relative' v-if="projects.length">
-    <div class='project-item' v-for="project in projects" :key="project.id">
-      <div class='project-info'>
-        <span class="category">{{ project.acf.categorie }}</span>
-        <h2>{{ project.acf.Title }}</h2>
-        <span class='subtitle'>{{ project.acf.subtitle }}</span>
-        <router-link class='cta' :to="'/projet/' + project.slug">En découvrir&nbsp;+</router-link>
-      </div>
+    <div class='projects-list'>
 
-      <div v-if="project._embedded['wp:featuredmedia']['0'].source_url" class='project-thumbnail' :style="{ backgroundImage: `url(${project._embedded['wp:featuredmedia']['0'].source_url})` }">
 
+      <div class='project-item' v-for="project in projects" :key="project.id">
+        <div class='project-info'>
+          <span class="category">{{ project.acf.categorie }}</span>
+          <h2>{{ project.acf.Title }}</h2>
+          <span class='subtitle'>{{ project.acf.subtitle }}</span>
+          <router-link class='cta' :to="'/projet/' + project.slug">En découvrir&nbsp;+</router-link>
+        </div>
+
+        <div v-if="project._embedded['wp:featuredmedia']['0'].source_url" class='project-thumbnail' :style="{ backgroundImage: `url(${project._embedded['wp:featuredmedia']['0'].source_url})` }">
+
+        </div>
       </div>
     </div>
     <BackToTop></BackToTop>
@@ -32,7 +36,6 @@ export default {
   created () {
     Axios.get(this.url).then((response) => {
       this.projects = response.data
-      console.log(response.data)
     })
   }
 }

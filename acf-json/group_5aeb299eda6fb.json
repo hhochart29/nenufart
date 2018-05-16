@@ -163,6 +163,25 @@
             "endpoint": 0
         },
         {
+            "key": "field_5afc7d533cc6e",
+            "label": "Title",
+            "name": "parcours_title",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
             "key": "field_5aeb2eee45241",
             "label": "École",
             "name": "ecole",
@@ -178,7 +197,7 @@
             "collapsed": "",
             "min": 0,
             "max": 0,
-            "layout": "table",
+            "layout": "block",
             "button_label": "",
             "sub_fields": [
                 {
@@ -322,5 +341,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1525363815
+    "modified": 1526496652
 }

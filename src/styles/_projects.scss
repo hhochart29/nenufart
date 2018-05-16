@@ -15,6 +15,10 @@
     }
 }
 
+.projects-list{
+    margin-bottom: -170px;
+}
+
 .project-thumbnail{
     background-size: cover;
     background-position: center center;
@@ -45,5 +49,97 @@
         overflow: hidden;        
         white-space: nowrap;
         text-overflow: ellipsis;
+    }
+}
+
+.single-project{
+    margin-top: -100px;
+    margin-bottom: -170px;
+}
+
+.header-img{
+    display: block;
+    width: 100%;
+}
+
+.project-top{
+    padding: 60px 0 30px;
+    color: white;
+}
+
+.project-table{
+    .table-item{
+        display: flex;
+        margin: 0 0 50px;
+    }
+    .table-text{
+        font-size: 1.8rem;
+    }
+    .table-title{
+        width: 180px;
+        flex-shrink: 0;
+    }
+}
+
+.project-content-text{
+    font-size: 1.8rem;
+    margin: 10rem 0 0;
+}
+
+.project-img{
+    > .container-small{
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+}
+
+@media (max-width: 1100px){
+    .project-info{
+        .category{
+            font-size: 5rem;
+        }
+        h2 {
+            margin: 3rem 0;
+        }
+    }
+}
+
+
+@media (max-width: 780px){
+    .project-item{
+        > .project-info{
+            width: 100%;
+        }
+        &:nth-child(even){
+            > .project-info {
+                align-items: flex-end;
+            }
+        }
+    }
+    .projects-list{
+        margin-bottom: -150px;
+    }
+    .single-project{
+        margin-top: -80px;
+        margin-bottom: -150px;
+    }
+    .project-thumbnail{
+        display: none;
+    }
+}
+
+@media (max-width: 580px){
+    .project-table{
+        .table-item{
+            flex-direction: column;
+        }
+        .table-title{
+            margin: 0 0 15px;
+        }
+    }
+    .project-info{
+        .category{
+            font-size: 3rem;
+        }
     }
 }

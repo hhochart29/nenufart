@@ -8,8 +8,9 @@
 
 <script>
 
-import 'gsap'
+// import 'gsap'
 import 'gsap/ScrollToPlugin'
+import {TweenLite} from 'gsap'
 
 export default {
   name: 'BackToTop',

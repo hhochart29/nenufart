@@ -12,7 +12,7 @@
       <div class="input-group">
         <input type="text" placeholder="Votre E-mail" v-model="email">
         <transition name="fade">
-        <div class="form-return error" v-if="formFeedbackMessages.mail">{{ formFeedbackMessages.mail }}</div>
+          <div class="form-return error" v-if="formFeedbackMessages.mail">{{ formFeedbackMessages.mail }}</div>
         </transition>
       </div>
       <div class="input-group">
@@ -20,13 +20,13 @@
           <textarea class="textinput" v-model="message"></textarea>
         </label>
         <transition name="fade">
-        <div class="form-return error" v-if="formFeedbackMessages.message">{{ formFeedbackMessages.message }}</div>
+          <div class="form-return error" v-if="formFeedbackMessages.message">{{ formFeedbackMessages.message }}</div>
         </transition>
       </div>
       <div class="input-group">
         <input type="submit" @click.prevent="submit()" value="Envoyer">
         <transition name="fade">
-        <div class="form-return success" v-if="formFeedbackMessages.success">{{ formFeedbackMessages.success }}</div>
+          <div class="form-return success" v-if="formFeedbackMessages.success">{{ formFeedbackMessages.success }}</div>
         </transition>
       </div>
     </form>

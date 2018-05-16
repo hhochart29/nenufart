@@ -2,6 +2,7 @@
 @import '_colors.scss';
 @import '_header.scss';
 @import '_buttons.scss';
+@import '_moving-letters.scss';
 @import '_projects.scss';
 @import '_about.scss';
 @import '_contact.scss';
@@ -38,6 +39,20 @@ html, body, #app {
 
 .container{
     max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 20px;
+    width: 100%;
+}
+
+.container-medium{
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px;
+    width: 100%;
+}
+
+.container-small{
+    max-width: 700px;
     margin: 0 auto;
     padding: 0 20px;
     width: 100%;
@@ -104,6 +119,11 @@ h3 {
     font-size: 7rem;
     font-weight: 500;
 	color: $darkgrey;
+}
+
+img{
+    max-width: 100%;
+    height: auto;
 }
 
 /* END GLOBAL STYLE*/
