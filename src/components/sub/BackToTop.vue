@@ -10,7 +10,7 @@
 
 // import 'gsap'
 import 'gsap/ScrollToPlugin'
-import {TweenLite} from 'gsap'
+import 'gsap'
 
 export default {
   name: 'BackToTop',

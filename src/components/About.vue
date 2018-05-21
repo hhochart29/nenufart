@@ -1,6 +1,6 @@
 <template>
   <div class="relative">
-    <div class="container">
+    <div class="container-about container">
 
       <h3 class="ml11" @click='revealh3'>
         <span class="text-wrapper">
@@ -34,14 +34,18 @@
       <div class="ecoles">
         <div class="ecole" v-for="ecole in this.page.ecole" :key="ecole.title">
           <div class="left-wrapper">
-            <div class="ecole-name">
-              {{ ecole.title }}
+            <div class="info">
+              <div class="ecole-name">
+                {{ ecole.title }}
+              </div>
+              <div class="ecole-date">
+                {{ ecole.date }}
+              </div>
             </div>
-            <div class="ecole-date">
-              {{ ecole.date }}
-            </div>
-            <div class="ecole-skill" v-for="competence in ecole.competences" :key="competence.skill">
-              {{ competence.skill }}
+            <div class="ecole-skills">
+              <div class="ecole-skill" v-for="competence in ecole.competences" :key="competence.skill">
+                {{ competence.skill }}
+              </div>
             </div>
           </div>
           <div class="right-wrapper">
