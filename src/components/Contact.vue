@@ -1,6 +1,11 @@
 <template>
   <div id="contact" class='container'>
-    <h1>{{ title }}</h1>
+    <h3 class="ml11" v-scroll-reveal.reset>
+      <span class="text-wrapper">
+      <span class="line line1"></span>
+      <span class="letters">{{ title }}</span>
+      </span>
+    </h3>
 
     <form action="#">
       <div class="input-group">

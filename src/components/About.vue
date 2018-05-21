@@ -2,7 +2,7 @@
   <div class="relative">
     <div class="container-about container">
 
-      <h3 class="ml11" @click='revealh3'>
+      <h3 class="ml11" v-scroll-reveal.reset>
         <span class="text-wrapper">
           <span class="line line1"></span>
           <span class="letters">{{this.page.whoami_title}}</span>
@@ -25,7 +25,7 @@
         </div>
       </div>
 
-      <h3 class="ml11" @click='revealh3'>
+      <h3 class="ml11" v-scroll-reveal.reset>
         <span class="text-wrapper">
           <span class="line line1"></span>
           <span class="letters">{{this.page.parcours_title}}</span>
@@ -64,7 +64,6 @@
 
 <script>
 import Axios from 'axios'
-import anime from 'animejs'
 import BackToTop from '@/components/sub/BackToTop'
 
 export default {
@@ -81,45 +80,5 @@ export default {
       this.page = response.data.acf
     })
   },
-  methods: {
-    revealh3 (event) {
-      const target = event.currentTarget
-
-      target.querySelector('.letters').innerHTML = target.querySelector('.letters').textContent.replace(/[^ ]/ig, '<span class=\'letter\'>$&</span>')
-
-      anime.timeline()
-        .add({
-          targets: target.querySelector('.line'),
-          scaleY: [0, 1],
-          opacity: [0.5, 1],
-          easing: 'easeOutExpo',
-          duration: 700
-        })
-        .add({
-          targets: target.querySelector('.line'),
-          translateX: [0, target.clientWidth],
-          easing: 'easeOutExpo',
-          duration: 700,
-          delay: 100
-        })
-        .add({
-          targets: target.querySelectorAll('.letter'),
-          opacity: [0, 1],
-          easing: 'easeOutExpo',
-          duration: 600,
-          offset: '-=775',
-          delay: function (el, i) {
-            return 34 * (i + 1)
-          }
-        })
-        .add({
-          targets: target.querySelector('.line'),
-          opacity: 0,
-          duration: 1000,
-          easing: 'easeOutExpo',
-          delay: 1000
-        })
-    }
-  }
 }
 </script>

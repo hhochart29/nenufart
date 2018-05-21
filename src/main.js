@@ -4,8 +4,13 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import VueScrollReveal from 'vue-scroll-reveal'
+import { revealh3 } from './components/sub/utils'
 
-Vue.use(VueScrollReveal)
+Vue.use(VueScrollReveal, {
+  beforeReveal: function (e) {
+    revealh3(e)
+  },
+})
 
 Vue.config.productionTip = false
 
@@ -14,5 +19,5 @@ new Vue({
   el: '#app',
   router,
   template: '<App/>',
-  components: { App }
+  components: {App}
 })
