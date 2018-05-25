@@ -6,6 +6,10 @@ import router from './router'
 import VueScrollReveal from 'vue-scroll-reveal'
 import { revealh3 } from './components/sub/utils'
 
+window.addEventListener('beforeunload', function () {
+  window.scrollTo(0, 0)
+})
+
 Vue.use(VueScrollReveal, {
   beforeReveal: function (e) {
     revealh3(e)

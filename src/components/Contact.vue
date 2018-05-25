@@ -22,7 +22,7 @@
       </div>
       <div class="input-group">
         <label>
-          <textarea class="textinput" v-model="message"></textarea>
+          <textarea class="textinput" v-model="message" placeholder="Votre Message"></textarea>
         </label>
         <transition name="fade">
           <div class="form-return error" v-if="formFeedbackMessages.message">{{ formFeedbackMessages.message }}</div>
@@ -49,7 +49,7 @@ export default {
       postURL: '/wp-content/themes/nenufart/form.php',
       name: '',
       email: '',
-      message: 'Votre message',
+      message: '',
       formFeedbackMessages: []
     }
   },
