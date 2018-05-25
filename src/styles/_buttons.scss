@@ -15,12 +15,12 @@
     margin-top: 100px;    
     bottom: 30px;
     left: calc(100vw - 100px);
-    height: 70px;
-    width: 70px;
+    height: 50px;
+    width: 50px;
     background-color: #424141;
     > svg {
-        height: 45px;
-        width: 45px;
+        height: 35px;
+        width: 35px;
         transform-origin: 50% 50%;
     }
     &.right{

@@ -13,7 +13,7 @@ window.addEventListener('beforeunload', function () {
 Vue.use(VueScrollReveal, {
   beforeReveal: function (e) {
     revealh3(e)
-  },
+  }
 })
 
 Vue.config.productionTip = false

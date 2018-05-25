@@ -66,7 +66,6 @@ export default {
       })
     },
     enterTitle: function () {
-
       document.querySelectorAll('.ml9 .letters').forEach(function (el) {
         el.innerHTML = el.textContent.replace(/([^\x00-\x80]|\w)/g, '<span class=\'letter\'>$&</span>')
       })

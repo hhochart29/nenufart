@@ -19,7 +19,7 @@ export default {
   },
   methods: {
     back () {
-      TweenLite.to(window, 0.3, {scrollTo: 0})
+      TweenLite.to(window, 0.7, {scrollTo: 0})
     }
   }
 }

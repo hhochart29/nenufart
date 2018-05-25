@@ -79,6 +79,6 @@ export default {
     Axios.get(this.url).then((response) => {
       this.page = response.data.acf
     })
-  },
+  }
 }
 </script>
